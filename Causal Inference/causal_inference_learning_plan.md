@@ -108,7 +108,6 @@ This plan focuses on learning core causal inference tools and implementing each 
 - **Relevant files (existing)**:
   - [Diff-in-diff](Diff_in_diff.ipynb) - DiD analysis with parallel trends test and placebo tests
 
----
 
 ### **5. CUPED (Variance Reduction for Experiments)**
 
@@ -180,14 +179,6 @@ This plan focuses on learning core causal inference tools and implementing each 
     - Your t-test/OLS and logistic regression examples.
     - Your DiD and ITS notebooks/scripts:
       - [DID_format.ipynb](DID_format.ipynb) - Add interaction terms (e.g., `treated * segment`)
-      - [DID_example.py](DID_example.py) - Add heterogeneous effects by subgroup
       - [NY Yellow Taxi time series.ipynb](../Timeseries/NY Yellow Taxi time series.ipynb) - Add interaction models
 
----
-
-### **How to Use This Plan**
-
-- **Order**: Start with t-tests/OLS and z-tests/logistic regression, then move to ITS and finally DiD.
-- **Workflow**: For each approach, (1) review concepts, (2) implement simulation in Python, (3) analyze results and assumptions, and (4) adapt the pattern to a real or semi-real dataset.
-- **Extension**: After these, you can continue into propensity score methods, synthetic control, and advanced panel DiD as natural next steps.
 
