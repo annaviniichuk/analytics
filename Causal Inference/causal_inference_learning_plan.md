@@ -1,4 +1,4 @@
-## Causal Inference with Python
+## Cusal Inference with Python
 
 This plan focuses on learning core causal inference tools and implementing each of them in Python. Follow the topics in order; each section lists key concepts, Python tools, and practice ideas, with links to your existing files where relevant.
 
@@ -11,7 +11,7 @@ This plan focuses on learning core causal inference tools and implementing each 
   - Difference in means, sampling distributions, standard error
   - Null vs alternative hypotheses, p-values, confidence intervals
   - Assumptions: independence, normality (CLT), homoskedasticity
-  - Simple OLS: Y = \beta_0 + \beta_1 \cdot \text{Treatment} + \epsilon
+  - Simple OLS: Y = beta_0 + beta_1*Treatment + error
 - **Python libraries**:
   - `numpy`, `pandas`
   - `scipy.stats` (`ttest_ind`, normal approximation)
@@ -28,7 +28,7 @@ This plan focuses on learning core causal inference tools and implementing each 
   - Vary sample size and effect size; see how p-values and confidence intervals change.
   - Add one covariate (e.g., user segment) to move from simple to multiple OLS.
 - **Relevant files (to create / extend)**:
-  - Add a small script or notebook, e.g. `t_test_and_ols_example.ipynb` or `T-test and OLS.ipynb` in `Statistical Inferences/Causal Inference/`.
+  - [Classic AB test](AB_test_continious_t_test.ipynb)
 
 ---
 
@@ -106,7 +106,7 @@ This plan focuses on learning core causal inference tools and implementing each 
   - Vary the true effect in the simulation and see how well the model recovers it.
   - Add covariates and/or unit fixed effects and compare results.
 - **Relevant files (existing)**:
-  - [DID_format.ipynb](DID_format.ipynb) - Complete DiD analysis with parallel trends test and placebo tests
+  - [Diff-in-diff](Diff_in_diff.ipynb) - DiD analysis with parallel trends test and placebo tests
 
 ---
 
@@ -151,8 +151,7 @@ This plan focuses on learning core causal inference tools and implementing each 
   3. Plot the estimated coefficients and confidence intervals over event time.
   4. Interpret pre-period coefficients (parallel trends) and post-period dynamics (build-up, decay, etc.).
 - **Relevant files (existing)**:
-  - [Event Study.ipynb](Event Study.ipynb) - Complete event study implementation with dynamic treatment effects
-  
+  - [Event Study](Event_study.ipynb) - Complete event study implementation with dynamic treatment effects
 
 ---
 
