@@ -87,21 +87,15 @@ This plan focuses on learning core causal inference tools and implementing each 
 
 - **Goal**: Learn how to estimate treatment effects using treated vs control groups observed before and after an intervention.
 - **Core concepts**:
-  - Panel / repeated measures data (unit × time)
   - Treatment indicator, post indicator, and interaction (`treated * post`)
   - Parallel trends assumption and how to partially assess it
   - Placebo tests and robustness checks
-  - Basic DiD regression: Y_{it} = \alpha + \beta_1 \cdot \text{treated}_i + \beta_2 \cdot \text{post}_t + \beta_3 \cdot (\text{treated}_i \times \text{post}*t) + \epsilon*{it}
+  - Basic DiD regression: 
+  Y(pred) = beta_0 + beta_1 * treated + beta_2* post + beta_3 * treated * post + e
 - **Python libraries**:
   - `pandas`, `numpy`
   - `statsmodels.formula.api` for OLS DiD regression
-  - Optionally `linearmodels` for more advanced panel DiD
-- **Learning steps**:
-  1. Work through your simulated DiD example (dog toys vs cat toys, marketing intervention).
-  2. Construct `treated`, `post`, and interaction `treated * post`.
-  3. Estimate the DiD model, interpret the interaction coefficient as the average treatment effect.
-  4. Test parallel trends using pre-period data (interaction of treatment with time trend).
-  5. Run placebo tests with fake intervention dates to see if large “effects” appear where none should.
+
 - **Practice ideas**:
   - Vary the true effect in the simulation and see how well the model recovers it.
   - Add covariates and/or unit fixed effects and compare results.
@@ -152,9 +146,29 @@ This plan focuses on learning core causal inference tools and implementing each 
 - **Relevant files (existing)**:
   - [Event Study](Event_study.ipynb) - Complete event study implementation with dynamic treatment effects
 
+
+### **7. Event Study**
+
+- **Goal**: Learn how to generalize DiD into an event study that traces dynamic treatment effects over time (before and after treatment).
+- **Core concepts**:
+  - Relative time indicators (e.g., k periods before/after treatment)
+  - Event-time dummies and omitting a reference period
+  - Visualizing dynamic treatment effects and checking pre-trends graphically
+  - Connection to DiD (the DiD interaction is a special case of an event-study coefficient)
+- **Python libraries**:
+  - `pandas`, `numpy`
+  - `statsmodels.formula.api` for regression with multiple time-relative dummies
+- **Learning steps**:
+  1. Start from your DiD simulation (dog toys vs cat toys) and construct event-time dummies (e.g., k = -3, -2, -1, 0, 1, 2,\dots).
+  2. Run an event-study regression with these dummies (excluding one pre-period as the baseline).
+  3. Plot the estimated coefficients and confidence intervals over event time.
+  4. Interpret pre-period coefficients (parallel trends) and post-period dynamics (build-up, decay, etc.).
+- **Relevant files (existing)**:
+  - [Regression Discontinuity](Regression_discontinuity.ipynb) - RD implementation
+  - [Stakeholder Report](RD_Sales_Training_Stakeholder_Report.ipynb) 
 ---
 
-### **7. Interaction Models**
+### **8. Interaction Models**
 
 - **Goal**: Learn how to model heterogeneous treatment effects and effect modification using interaction terms in regression.
 - **Core concepts**:
